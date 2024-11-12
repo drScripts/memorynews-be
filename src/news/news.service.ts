@@ -38,11 +38,7 @@ export class NewsService {
   }
 
   async update(id: number, updateNewsDto: UpdateNewsDto): Promise<News> {
-    console.log("HAII 1");
-
     let news = await this.findOne(id);
-
-    console.log("HAII 2F");
 
     await this.newsRepository.update(id, updateNewsDto)
     news = await this.findOne(id);

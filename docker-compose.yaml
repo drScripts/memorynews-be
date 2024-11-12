@@ -9,3 +9,17 @@ services:
       - ./data:/var/lib/postgresql/data
     ports:
       - 5432:5432
+  
+  be:
+    image: memorybe
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DATABASE_NAME=memorynews
+      - DATABASE_USER=admin
+      - DATABASE_PASS=password
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
+    ports:
+      - 3003:3000
